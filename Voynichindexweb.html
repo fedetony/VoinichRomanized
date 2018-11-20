@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/fedetony/VoinichRomanized/raw/master/softkeys-0.0.1web.css">
+
+        <style>
+        	p.Voy
+        		{
+			    font-family: 'VoynichFont';
+			    font-variant-ligatures: no-common-ligatures;        /* <common-lig-values> */
+			    font-variant-ligatures: common-ligatures;        /* <common-lig-values> */
+
+			    font-size: 50px;
+				}
+            /*input[type="text"] {
+                display: bloc
+                margin: 2em auto;
+            }*/
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 jumbotron">
+        			<h1>Voynich to Rumanized using Softkey</h1>
+                    <p>An easy tool to Rumanize the Voynich code</p>
+                    <p>by Sergio Gudiño</p>
+                </div>
+                <div class="col-sm-12 jumbotron">
+				<p class="Voy" id="Voy_txt"></p>
+				<p id="Nor_txt"></p>
+				<button onclick="typeRomanized()">Voynich->Romanized</button>
+                </div>
+            </div>
+                    <form class="row form">
+                        <div class="col-sm-offset-4 col-sm-4 form-group">
+                            <input type="text" name="code" class="form-control input-lg" id="Rom_txt" onchange="typeRomanized()">
+                        </div>
+                        <div class="softkeys" data-target="input[name='code']"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="softkeys-0.0.1.js"></script>
+
+        <script>
+
+        	function typeRomanized() {
+        		var Rtxt = document.getElementById("Rom_txt");
+        		var Vtxt = document.getElementById("Voy_txt");
+        		var Ntxt = document.getElementById("Nor_txt");
+				Vtxt.innerHTML = Rtxt.value;
+				Ntxt.innerHTML = Rtxt.value;
+				}
+            $(document).ready(function(){
+                $('.softkeys').softkeys({
+                    target : $('.softkeys').data('target'),
+                    layout : [
+                        [
+                            ['`','~'],
+                            ['1','!'],
+                            ['2','@'],
+                            ['3','#'],
+                            ['4','$'],
+                            ['5','%'],
+                            ['6','^'],
+                            ['7','&amp;'],
+                            ['8','*'],
+                            ['9','('],
+                            ['0',')'],
+                            ['-', '_'],
+                            ['=','+'],
+                            'delete'
+                        ],
+                        [
+                        	['a','A'],
+                        	['b','b'],
+                        	['d','d'],
+                        	['e','e'],
+                        	['g','g'],
+                            ['h','h'],
+                            ['i','i'],
+                            ['l','l'],
+							['m','m'],
+							['n','n'],
+							['o','o'],
+							['r','r'],
+                            ['v','v'],
+                            ['t','t']
+
+                        ],
+                        [
+
+                            ['al','al'],
+                            ['fi','fi'],
+                            ['id','id'],
+                            ['la','la'],
+                            ['oe','oe'],
+                            ['on','on'],
+                            ['ra','ra'],
+                            ['u','u'],
+                            ['wa','wa'],
+                            ['cle','cle']
+
+                        ],
+                        [
+
+                        	['crii','crii'],
+                        	['crin','crin'],
+                        	['crim','crim'],
+                        	['criiol','criiol'],
+                        	['hririor','hririor'],
+                        	['irii','irii'],
+                        	['iriin','iriin'],
+                        	['iriio','iriio'],
+                        	['iriiol','iriiol'],
+                        	['irior','irior']
+                        ],
+                        [
+                        	['ie','ie'],
+                        	['iae','iae'],
+                        	['ine','ine'],
+                        	['iar','iar'],
+                        	['in','in'],
+                        	['min','min'],
+							['nin','nin']
+                        ],
+                        [
+                        	['hate','hate'],
+                        	['hata','hata'],
+                        	['hete','hete'],
+                        	['hoto','hoto'],
+                        	['hntn','hntn'],
+                        	['vate','vate'],
+                        	['ohtoh','ohtoh'],
+                        	['hrintrin','hrintrin']
+
+                        ],
+                        [
+                        	['laaol','laäol'],
+                        	['lhuol','lhuol'],
+                        	['lahuol','lahuol'],
+                        	['lohuol','lohuol'],
+                        	['lhuolah','lhuolah'],
+                        	['laaolah','laaolah'],
+                        	['laaole','laaole'],
+                        	['lahuole','lahuole']
+                        ],
+                        [
+                        	['halhuolt','halhuolt'],
+                        	['halaaolt','halaäolt'],
+                        	['halhuolt','halhuolt'],
+							['halahuolt','halahuolt'],
+                        	['halohuolt','halohuolt'],
+                        	['halhuolaht','halhuolaht'],
+                        	['halaaolet','halaaolet'],
+                        	['halaaolaht','halaaolaht'],
+                        	['hloteaaaahlote','hloteaaaahlote']
+
+                        ],
+                        [
+                        /* 'capslock', */
+							'shift',
+                        	'space'
+                        ],
+                        [
+                        	[';',':'],
+							["'",'&quot;'],
+                            ['\\','|'],
+                        	['[','{'],
+                            [']','}'],
+                            [',','&lt;'],
+							['.','&gt;'],
+							['/','?'],
+                            ['@']
+                        ]
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>
